@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-//import $ from "jquery";
-//import { Provider } from 'react-redux';
+import logo from './../logo.svg';
+import './../App.css';
 import { createStore, combineReducers } from 'redux';
 
 const Counter = (props) => {
@@ -36,12 +34,12 @@ class Main extends Component {
     }
     increase(){
         this.store.dispatch({
-            type: "increase"
+            type: "INCREASE"
         });
     }
     decrease(){
         this.store.dispatch({
-            type: "decrease"
+            type: "DECREASE"
         });
     }
     render() {
