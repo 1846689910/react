@@ -229,3 +229,14 @@ module.exports = {
  );
  关于导出组件，只有module.exports方式之后在别的组件导入时可以直接拿出内部组件，用import {Template1, Template2} from "..."
  * */
+/**
+ * npm install <package> 安装该package最新的version
+ * npm install <package>@<version> 安装该package的某个确定的version
+ *      --save 写入package.json,  --save --save-exact 将确定的version写入package.json
+ * npm uninstall <package>
+ * npm -v 查看npm的version
+ * npm view <package> version 查看在npm中，该package的当前最新版本
+ * npm list <package> 查看已安装的package的版本
+ * npm list 所有dependencies版本号
+ * npm list --depth=0
+ * */
