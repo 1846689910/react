@@ -246,4 +246,7 @@ module.exports = {
  *      npm run <命令>
  * 比如使用npm run jest来跑test，或者使用npm run jest src/test 来指定目录或文件名来跑特定的test
  * npm run mocha integrationTest 来跑integrationTest
+ *
+ * some time npm cannot install, with 404 error
+ *      npm set registry http://registry.npmjs.org/
  * */
