@@ -239,4 +239,11 @@ module.exports = {
  * npm list <package> 查看已安装的package的版本
  * npm list 所有dependencies版本号
  * npm list --depth=0
+ *
+ *
+ * 在package.json中，除了定义了本app的信息，package版本信息外还可以设置自己的命令流
+ * 在scripts一项中，可以设置自己的命令, 并执行:
+ *      npm run <命令>
+ * 比如使用npm run jest来跑test，或者使用npm run jest src/test 来指定目录或文件名来跑特定的test
+ * npm run mocha integrationTest 来跑integrationTest
  * */
