@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import logo from './../logo.svg';
 import './../App.css';
-import { createStore, combineReducers } from 'redux';
+import AppHeader from "./AppHeader";
 
 const Counter = (props) => {
     return (
@@ -25,12 +24,12 @@ class Main extends Component {
         return {};
     }
     componentDidMount(){
-        console.log(this.store);
-        console.log(this.initialState);
+        // console.log(this.store);
+        // console.log(this.initialState);
     }
     componentDidUpdate(){
-        console.log("updated");
-        console.log(this.store.getState().value);
+        // console.log("updated");
+        // console.log(this.store.getState().value);
     }
     increase(){
         this.store.dispatch({
@@ -45,13 +44,7 @@ class Main extends Component {
     render() {
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
+                <AppHeader />
                 <Counter value={this.store.getState().value} increase={this.increase} decrease={this.decrease}/>
             </div>
         );
