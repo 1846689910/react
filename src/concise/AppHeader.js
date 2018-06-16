@@ -55,8 +55,8 @@ class AppHeader extends Component {
                 <p className="App-intro">
                     To get started, please refer <code>src/concise</code>, <code>src/integration</code>, <code>src/TemplateClass</code>
                 </p>
-                <div style={{width: "40%", margin: "0 auto", textAlign: "center"}}>
-                    <div>
+                <div>
+                    <div style={{width: "115px", margin: "0 auto", textAlign: "center"}}>
                         <div id="draggable" className="ui-state-highlight" style={{margin: "0 auto"}}>Drag me down</div>
                     </div>
                     <div id="sortable">
