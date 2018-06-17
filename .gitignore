@@ -22,5 +22,6 @@ yarn-error.log*
 
 /src/react-redux-concise
 /src/redux-concise
-.idea/workspace.xml
-.idea
+/.idea/workspace.xml
+/.idea
+/temp
