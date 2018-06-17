@@ -125,7 +125,19 @@
             }
 
             layer.bindPopup(popupContent);
+        },
+
+        pointToLayer: function (feature, latlng) {
+            let popupContent = "<p>I started out as a GeoJSON " +
+                feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
+            let circleMarker = getCircleMarker(latlng, 10);
+            let point = L.circle(latlng, {radius: 0, fillColor: "rgb(0,0,0)", color: "rgb(0,0,0)"});
+            let lineLatLngs = [[latlng.lat, latlng.lng], [latlng.lat + 0.01, latlng.lng + 0.01]];
+            let line = L.polyline(lineLatLngs, {color: "black"});
+            return L.featureGroup([circleMarker, point, line])  // Extended LayerGroup that makes it easier to do the same thing to all its member layers:
+                .bindPopup(popupContent);
         }
+
     }).addTo(map);
 
 </script>
