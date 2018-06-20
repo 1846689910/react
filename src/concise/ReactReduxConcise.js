@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './../App.css';
 import { connect } from "react-redux";
-import AppHeader from "./AppHeader";
+import AppHeader from "../AppHeader";
 
 /**
  * Counter is a presentational component(pc)

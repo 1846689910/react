@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './../App.css';
-import AppHeader from "./AppHeader";
+import AppHeader from "../AppHeader";
 
 const Counter = (props) => {
     return (

@@ -2,7 +2,7 @@
  * Created by Eric on 6/15/2018.
  */
 import React, { Component } from 'react';
-import logo from './../logo.svg';
+import logo from './logo.svg';
 import $ from 'jquery';
 class AppHeader extends Component {
     constructor(props){
@@ -48,9 +48,10 @@ class AppHeader extends Component {
                     <h1 className="App-title">Welcome to Eric's React starter</h1>
                 </header>
                 <div style={{width: "100%", height: "30px"}}>
-                    <div style={{width: "30%", height: "100%", display: "inline-block", background: "whitesmoke"}} />
-                    <div style={{width: "30%", height: "100%", display: "inline-block", background: "blue"}} />
-                    <div style={{width: "30%", height: "100%", display: "inline-block", background: "red"}} />
+                    <div style={{width: "20%", height: "100%", display: "inline-block", background: "#4286f4"}} />
+                    <div style={{width: "20%", height: "100%", display: "inline-block", background: "red"}} />
+                    <div style={{width: "20%", height: "100%", display: "inline-block", background: "yellow"}} />
+                    <div style={{width: "20%", height: "100%", display: "inline-block", background: "green"}} />
                 </div>
                 <p className="App-intro">
                     To get started, please refer <code>src/concise</code>, <code>src/integration</code>, <code>src/TemplateClass</code>
