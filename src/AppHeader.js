@@ -4,6 +4,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import $ from 'jquery';
+import utils from "./utils";
+import {MySVGIcon} from "./Icons";
 class AppHeader extends Component {
     constructor(props){
         super(props);
@@ -39,6 +41,7 @@ class AppHeader extends Component {
                 revert: "invalid"
             });
         });
+        console.log(utils.getTime());
     }
     render() {
         return (
@@ -56,6 +59,11 @@ class AppHeader extends Component {
                 <p className="App-intro">
                     To get started, please refer <code>src/concise</code>, <code>src/integration</code>, <code>src/TemplateClass</code>
                 </p>
+                <div>
+                    <p>use SVG as icon in jsx, concise refer to Icons.js</p>
+                    <MySVGIcon wrapperStyle={{}} width="80px" height="80px" pathStyle={{fill: "red"}}/>
+                    {/* wrapperStyle to set position of the icon, width, height should be set separately, path style to set color ... */}
+                </div>
                 <div>
                     <div style={{width: "115px", margin: "0 auto", textAlign: "center"}}>
                         <div id="draggable" className="ui-state-highlight" style={{margin: "0 auto"}}>Drag me down</div>

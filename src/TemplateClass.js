@@ -215,12 +215,35 @@ module.exports = {
     Template1: Template1,
     Template3: Template3
 };
-// 或者 export default {}
-// export default {
-//     Template1: Template1,
-//     Template2: Template2
-// };
-/** 在main.js中获取时
+/**
+ * 组件的import 和 export有两种：
+ *      1 集中式：常见于对于方法封装的类
+ *          导出:
+ *          export default {
+ *              AAA: AAA,
+ *              BBB: BBB
+ *          }
+ *          或者
+ *          module.exports = {
+ *              AAA: AAA,
+ *              BBB: BBB
+ *          }
+ *          导入:
+ *          import utils from "./xxx";
+ *          调用: utils.AAA或者utils.BBB
+ *      2 分散式: 常见于对于组件封装的类
+ *          导出:
+ *          export const AAA = (props) => {...};
+ *          export function BBB (props){...}
+ *          export class CCC extends React.Component{...}
+ *          **注意：要对其中每一个都用export, 不能在最后使用export {AAA: AAA, ...}
+ *          导入:
+ *          import {AAA, BBB, CCC} from "./xxx";
+ * */
+
+/**
+ * @deprecated  此部分可能已过时
+ * 在main.js中获取时
  import Template from "./Template";
  const Template1 = Template.Template1;
  ReactDOM.render(
@@ -229,6 +252,7 @@ module.exports = {
  );
  关于导出组件，只有module.exports方式之后在别的组件导入时可以直接拿出内部组件，用import {Template1, Template2} from "..."
  * */
+
 /**
  * npm install <package> 安装该package最新的version
  * npm install <package>@<version> 安装该package的某个确定的version
