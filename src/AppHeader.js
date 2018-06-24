@@ -17,8 +17,8 @@ class AppHeader extends Component {
         return {
             eachDisplayStyle: {
                 padding: 0,
-                margin: "0 15px",
-                background: "whitesmoke"
+                background: "whitesmoke",
+                width: "32%"
             }
         };
     }
@@ -42,7 +42,8 @@ class AppHeader extends Component {
             $( "#draggable" ).draggable({
                 connectToSortable: "#sortable",
                 helper: "clone",
-                revert: "invalid"
+                revert: "invalid",
+                axis: "y"
             });
         });
         console.log(utils.getTime());
@@ -50,39 +51,33 @@ class AppHeader extends Component {
     render() {
         return (
             <div>
-                <div className="row">
-                    <header className="App-header" style={{width: "100%"}}>
-                        <img src={logo} className="App-logo" alt="logo" />
-                        <h1 className="App-title">Welcome to Eric's React starter</h1>
-                    </header>
+                <header className="App-header" style={{width: "100%"}}>
+                    <img src={logo} className="App-logo" alt="logo" style={{display: "block", margin: "0 auto"}}/>
+                    <h1 className="App-title" style={{textAlign: "center"}}>Welcome to Eric's React starter</h1>
+                </header>
+                <div style={{display: "flex", justifyContent: "center"}}>
+                    <div style={{flex: 0.5}} />{/*此div是个占位符，左右各空出0.5个位置*/}
+                    <div style={{flex: 1, height: "30px", background: "#4286f4"}} />
+                    <div style={{flex: 1, height: "30px", background: "red"}} />
+                    <div style={{flex: 1, height: "30px", background: "yellow"}} />
+                    <div style={{flex: 1, height: "30px", background: "green"}} />
+                    <div style={{flex: 0.5}} />
                 </div>
-                <div className="row">
-                    <div style={{width: "100%", height: "30px"}}>
-                        <div style={{width: "20%", height: "100%", display: "inline-block", background: "#4286f4"}} />
-                        <div style={{width: "20%", height: "100%", display: "inline-block", background: "red"}} />
-                        <div style={{width: "20%", height: "100%", display: "inline-block", background: "yellow"}} />
-                        <div style={{width: "20%", height: "100%", display: "inline-block", background: "green"}} />
-                    </div>
+                <div style={{padding: 0, display: "flex"}}>
+                    <p className="App-intro" style={{flex: 1, textAlign: "center"}}>
+                        To get started, please refer <code>src/concise</code>, <code>src/integrationTest</code>, <code>src/TemplateClass</code>
+                    </p>
                 </div>
-                <div className="row">
-                    <div className="col-sm-12" style={{padding: 0}}>
-                        <p className="App-intro">
-                            To get started, please refer <code>src/concise</code>, <code>src/integrationTest</code>, <code>src/TemplateClass</code>
-                        </p>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-sm-4" style={this.props.eachDisplayStyle}>
-                        <p><b><i>SVG Icon Display</i></b></p>
-                        <p>use SVG as icon in jsx, concise refer to <code>Icons.js</code></p>
-                        <MySVGIcon wrapperStyle={{}} width="80px" height="80px" pathStyle={{fill: "red"}}/>
+                <div style={{display: "flex", justifyContent: "space-around"}}>
+                    <div style={this.props.eachDisplayStyle}>
+                        <p style={{textAlign: "center"}}><b><i>SVG Icon Display</i></b></p>
+                        <p style={{textAlign: "center"}}>use SVG as icon in jsx, concise refer to <code>Icons.js</code></p>
+                        <MySVGIcon wrapperStyle={{display: "block", margin: "0 auto", textAlign: "center"}} width="80px" height="80px" pathStyle={{fill: "red"}}/>
                         {/* wrapperStyle to set position of the icon, width, height should be set separately, path style to set color ... */}
                     </div>
-                    <div className="col-sm-4" style={this.props.eachDisplayStyle}>
-                        <p><b><i>Drag and Drop Display</i></b></p>
-                        <div style={{width: "115px", margin: "0 auto", textAlign: "center"}}>
-                            <div id="draggable" className="ui-state-highlight" style={{margin: "0 auto"}}>Drag me down</div>
-                        </div>
+                    <div style={this.props.eachDisplayStyle}>
+                        <p style={{textAlign: "center"}}><b><i>Drag and Drop Display</i></b></p>
+                            <div id="draggable" className="ui-state-highlight">Drag me down</div>
                         <div id="sortable">
                             {/*里面每一个拖拽项目必须是块级元素，外层包裹必须是#sortable才可以*/}
                             <div>hello</div>
@@ -92,6 +87,7 @@ class AppHeader extends Component {
                             <div>great</div>
                         </div>
                     </div>
+                    <div style={this.props.eachDisplayStyle}></div>
                 </div>
             </div>
         );

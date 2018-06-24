@@ -4,16 +4,14 @@ import AppHeader from "../AppHeader";
 
 const Counter = (props) => {
     const divStyle = {
-        padding: 0
+        padding: 0,
     };
     return (
         <div>
-            <div className="row">
-                <div className="col-sm-12" style={divStyle}>
-                    <p><b><i>pure Redux Display</i></b>(for React-Redux Display change <code>src/index.js</code>)</p>
-                </div>
-                <div className="col-sm-12" style={divStyle}>
-                    <h3>{props.value}</h3>
+            <p style={{textAlign: "center"}}><b><i>pure Redux Display</i></b>(for React-Redux Display change <code>src/index.js</code>)</p>
+            <div style={divStyle}>
+                <h3 style={{textAlign: "center"}}>{props.value}</h3>
+                <div>
                     <button className="inc-btn" onClick={props.increase}>increase</button>
                     <button className="dec-btn" onClick={props.decrease}>decrease</button>
                 </div>
