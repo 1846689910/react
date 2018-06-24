@@ -3,11 +3,21 @@ import './../App.css';
 import AppHeader from "../AppHeader";
 
 const Counter = (props) => {
+    const divStyle = {
+        padding: 0
+    };
     return (
         <div>
-            <h3>{props.value}</h3>
-            <button className="inc-btn" onClick={props.increase}>increase</button>
-            <button className="dec-btn" onClick={props.decrease}>decrease</button>
+            <div className="row">
+                <div className="col-sm-12" style={divStyle}>
+                    <p><b><i>pure Redux Display</i></b>(for React-Redux Display change <code>src/index.js</code>)</p>
+                </div>
+                <div className="col-sm-12" style={divStyle}>
+                    <h3>{props.value}</h3>
+                    <button className="inc-btn" onClick={props.increase}>increase</button>
+                    <button className="dec-btn" onClick={props.decrease}>decrease</button>
+                </div>
+            </div>
         </div>
     );
 };

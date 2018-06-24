@@ -7,6 +7,7 @@ import 'jquery-ui/ui/widgets/draggable';
 import 'jquery-ui/ui/widgets/sortable';
 import 'jquery-ui/ui/core';
 import 'font-awesome/css/font-awesome.min.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import Main from './concise/ReduxConcise';  /** redux */
 import Main1 from "./concise/ReactReduxConcise";  /** display react-redux */

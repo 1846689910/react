@@ -8,11 +8,21 @@ import AppHeader from "../AppHeader";
  * pc (for UI only, no state mgmt, all data from props, no redux api)
  * */
 const CounterPC = (props) => {
+    const divStyle = {
+        padding: 0
+    };
     return (
         <div>
-            <h3>{props.value}</h3>
-            <button className="inc-btn" onClick={props.increase}>increase</button>
-            <button className="dec-btn" onClick={props.decrease}>decrease</button>
+            <div className="row">
+                <div className="col-sm-12" style={divStyle}>
+                    <p><b><i>React-Redux Display</i></b>(for pure Redux Display change <code>src/index.js</code>)</p>
+                </div>
+                <div className="col-sm-12" style={divStyle}>
+                    <h3>{props.value}</h3>
+                    <button className="inc-btn" onClick={props.increase}>increase</button>
+                    <button className="dec-btn" onClick={props.decrease}>decrease</button>
+                </div>
+            </div>
         </div>
     );
 };
@@ -74,7 +84,7 @@ const CounterCC = connect(
 
 const Main = () => {
     return (
-        <div className="App">
+        <div className="App container-fluid">
             <AppHeader />
             <CounterCC />
         </div>

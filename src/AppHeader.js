@@ -15,7 +15,11 @@ class AppHeader extends Component {
     }
     static get defaultProps(){
         return {
-
+            eachDisplayStyle: {
+                padding: 0,
+                margin: "0 15px",
+                background: "whitesmoke"
+            }
         };
     }
     componentDidMount(){
@@ -46,35 +50,47 @@ class AppHeader extends Component {
     render() {
         return (
             <div>
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to Eric's React starter</h1>
-                </header>
-                <div style={{width: "100%", height: "30px"}}>
-                    <div style={{width: "20%", height: "100%", display: "inline-block", background: "#4286f4"}} />
-                    <div style={{width: "20%", height: "100%", display: "inline-block", background: "red"}} />
-                    <div style={{width: "20%", height: "100%", display: "inline-block", background: "yellow"}} />
-                    <div style={{width: "20%", height: "100%", display: "inline-block", background: "green"}} />
+                <div className="row">
+                    <header className="App-header" style={{width: "100%"}}>
+                        <img src={logo} className="App-logo" alt="logo" />
+                        <h1 className="App-title">Welcome to Eric's React starter</h1>
+                    </header>
                 </div>
-                <p className="App-intro">
-                    To get started, please refer <code>src/concise</code>, <code>src/integration</code>, <code>src/TemplateClass</code>
-                </p>
-                <div>
-                    <p>use SVG as icon in jsx, concise refer to Icons.js</p>
-                    <MySVGIcon wrapperStyle={{}} width="80px" height="80px" pathStyle={{fill: "red"}}/>
-                    {/* wrapperStyle to set position of the icon, width, height should be set separately, path style to set color ... */}
-                </div>
-                <div>
-                    <div style={{width: "115px", margin: "0 auto", textAlign: "center"}}>
-                        <div id="draggable" className="ui-state-highlight" style={{margin: "0 auto"}}>Drag me down</div>
+                <div className="row">
+                    <div style={{width: "100%", height: "30px"}}>
+                        <div style={{width: "20%", height: "100%", display: "inline-block", background: "#4286f4"}} />
+                        <div style={{width: "20%", height: "100%", display: "inline-block", background: "red"}} />
+                        <div style={{width: "20%", height: "100%", display: "inline-block", background: "yellow"}} />
+                        <div style={{width: "20%", height: "100%", display: "inline-block", background: "green"}} />
                     </div>
-                    <div id="sortable">
-                        {/*里面每一个拖拽项目必须是块级元素，外层包裹必须是#sortable才可以*/}
-                        <div>hello</div>
-                        <div>world</div>
-                        <div>good</div>
-                        <div>morning</div>
-                        <div>great</div>
+                </div>
+                <div className="row">
+                    <div className="col-sm-12" style={{padding: 0}}>
+                        <p className="App-intro">
+                            To get started, please refer <code>src/concise</code>, <code>src/integrationTest</code>, <code>src/TemplateClass</code>
+                        </p>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-sm-4" style={this.props.eachDisplayStyle}>
+                        <p><b><i>SVG Icon Display</i></b></p>
+                        <p>use SVG as icon in jsx, concise refer to <code>Icons.js</code></p>
+                        <MySVGIcon wrapperStyle={{}} width="80px" height="80px" pathStyle={{fill: "red"}}/>
+                        {/* wrapperStyle to set position of the icon, width, height should be set separately, path style to set color ... */}
+                    </div>
+                    <div className="col-sm-4" style={this.props.eachDisplayStyle}>
+                        <p><b><i>Drag and Drop Display</i></b></p>
+                        <div style={{width: "115px", margin: "0 auto", textAlign: "center"}}>
+                            <div id="draggable" className="ui-state-highlight" style={{margin: "0 auto"}}>Drag me down</div>
+                        </div>
+                        <div id="sortable">
+                            {/*里面每一个拖拽项目必须是块级元素，外层包裹必须是#sortable才可以*/}
+                            <div>hello</div>
+                            <div>world</div>
+                            <div>good</div>
+                            <div>morning</div>
+                            <div>great</div>
+                        </div>
                     </div>
                 </div>
             </div>
