@@ -56,19 +56,19 @@ class AppHeader extends Component {
                     <h1 className="App-title" style={{textAlign: "center"}}>Welcome to Eric's React starter</h1>
                 </header>
                 <div style={{display: "flex", justifyContent: "center"}}>
-                    <div style={{flex: 0.5}} />{/*此div是个占位符，左右各空出0.5个位置*/}
+                    <div style={{flex: 0.2}} />{/*此div是个占位符，左右各空出0.2个位置*/}
                     <div style={{flex: 1, height: "30px", background: "#4286f4"}} />
                     <div style={{flex: 1, height: "30px", background: "red"}} />
                     <div style={{flex: 1, height: "30px", background: "yellow"}} />
                     <div style={{flex: 1, height: "30px", background: "green"}} />
-                    <div style={{flex: 0.5}} />
+                    <div style={{flex: 0.2}} />
                 </div>
                 <div style={{padding: 0, display: "flex"}}>
                     <p className="App-intro" style={{flex: 1, textAlign: "center"}}>
                         To get started, please refer <code>src/concise</code>, <code>src/integrationTest</code>, <code>src/TemplateClass</code>
                     </p>
                 </div>
-                <div style={{display: "flex", justifyContent: "space-around"}}>
+                <div style={{display: "flex", justifyContent: "space-evenly"}}>
                     <div style={this.props.eachDisplayStyle}>
                         <p style={{textAlign: "center"}}><b><i>SVG Icon Display</i></b></p>
                         <p style={{textAlign: "center"}}>use SVG as icon in jsx, concise refer to <code>Icons.js</code></p>
@@ -87,9 +87,28 @@ class AppHeader extends Component {
                             <div>great</div>
                         </div>
                     </div>
-                    <div style={this.props.eachDisplayStyle}></div>
+                    <div style={this.props.eachDisplayStyle}>
+                        <p style={{textAlign: "center"}}><b><i>Flex Grid Display</i></b></p>
+                        <div>outer <i>display:flex</i> with inner <i>flex: [width]</i></div>
+                        <div style={{display: "flex"}}>
+                            <div style={{flex: 0.5, background: "#999999"}}></div>
+                            <div style={{flex: 1, textAlign: "center", background: "#ff0000"}}>hello</div>
+                            <div style={{flex: 1, textAlign: "center", background: "#00ff00"}}>world</div>
+                            <div style={{flex: 1, textAlign: "right", background: "#0000ff"}}>logout</div>
+                            <div style={{flex: 0.5, background: "#999999"}}></div>
+                        </div>
+                        <div>outer <i>display:flex</i> and <i>justify-content</i> with inner <i>width: ...%</i></div>
+                        <div style={{display: "flex", justifyContent: "space-evenly", background: "#999999"}}>
+                            <div style={{width: "30%", textAlign: "center", background: "#ff0000"}}>hello</div>
+                            <div style={{width: "30%", textAlign: "center", background: "#00ff00"}}>world</div>
+                            <div style={{width: "30%", textAlign: "right", background: "#0000ff"}}>logout</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div style={{display: "flex", justifyContent: "space-evenly"}}>
+                    {/*<div style={this.props.eachDisplayStyle}>Other display here</div>*/}
+                </div>
+        </div>
         );
     }
 }

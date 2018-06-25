@@ -18,11 +18,11 @@ import { Provider } from "react-redux";
 /**
  * for only redux rendering
  * */
-// const render = () => ReactDOM.render(
-//    <Main store={store} />,
-//    document.getElementById('root'));
-// render();
-// store.subscribe(render);  // 最后store一定要subscribe render方法，使得state更新后能及时地刷新UI
+ //const render = () => ReactDOM.render(
+ //   <Main store={store} />,
+ //   document.getElementById('root'));
+ //render();
+ //store.subscribe(render);  // 最后store一定要subscribe render方法，使得state更新后能及时地刷新UI
 
 /**
  * for react-redux rendering
