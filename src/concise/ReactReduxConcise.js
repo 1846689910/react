@@ -8,11 +8,6 @@ import AppHeader from "../AppHeader";
  * pc (for UI only, no state mgmt, all data from props, no redux api)
  * */
 const CounterPC = (props) => {
-    const rowStyle = {
-        padding: 0,
-        display: "flex",
-        textAlign: "center"
-    };
     return (
         <div>
             <p style={{textAlign: "center"}}><b><i>React-Redux Display</i></b>(for pure Redux Display change <code>src/index.js</code>)</p>

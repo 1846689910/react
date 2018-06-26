@@ -173,36 +173,35 @@ Template1.propTypes = {
  * */
 
 /*
- const Template2 = React.createClass({  // return an object
- propTypes: { // as an object
- name: PropTypes.string
- },
- getInitialState(){  /!** set initial state *!/
- return {
- isEditing: false
- };
- },
- getDefaultProps(){  /!** set default props *!/
- return {
- name: "alex",
- };
- },
- handleClick(){
- this.setState(function(state){  /!** change state by using setState() method *!/
- return {
- isEditing: ! state.isEditing,
- };
- });
- },
- render(){
- return (<div onClick={this.handleClick}>
- <h1>Hello {this.props.name}, age: {this.props.age}</h1>
- <h2>{this.state.isEditing ? "Not Available" : "Ready"}</h2>
- </div>);
- }
- });
- */
-
+const Template2 = React.createClass({  // return an object
+    propTypes: { // as an object
+        name: PropTypes.string
+    },
+    getInitialState(){  /!** set initial state *!/
+        return {
+            isEditing: false
+        };
+    },
+    getDefaultProps(){  /!** set default props *!/
+        return {
+            name: "alex",
+        };
+    },
+    handleClick(){
+        this.setState(function(state){  /!** change state by using setState() method *!/
+            return {
+                isEditing: ! state.isEditing,
+            };
+        });
+    },
+    render(){
+        return (<div onClick={this.handleClick}>
+            <h1>Hello {this.props.name}, age: {this.props.age}</h1>
+            <h2>{this.state.isEditing ? "Not Available" : "Ready"}</h2>
+        </div>);
+    }
+});
+*/
 /** Static(Stateless) Component无状态组件: 组件不会被实例化，组件无生命周期，无state只有props，不可使用refs */
 const Template3 = (props) => {  // 相当于const Template2 = function(props){};
     return (

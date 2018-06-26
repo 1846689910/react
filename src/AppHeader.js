@@ -6,6 +6,7 @@ import logo from './logo.svg';
 import $ from 'jquery';
 import utils from "./utils";
 import {SVGDisplay, DragNDropDisplay, FlexGridDisplay} from './displays/display1';
+import ReselectDisplay from './displays/ReselectDisplay';
 class AppHeader extends Component {
     constructor(props){
         super(props);
@@ -15,6 +16,11 @@ class AppHeader extends Component {
     }
     static get defaultProps(){
         return {
+            rowWrapperStyle: {
+                display: "flex",
+                justifyContent: "space-evenly",
+                marginTop: "10px"
+            },
             eachDisplayStyle: {
                 padding: 0,
                 background: "whitesmoke",
@@ -68,13 +74,16 @@ class AppHeader extends Component {
                         To get started, please refer <code>src/concise</code>, <code>src/integrationTest</code>, <code>src/TemplateClass</code>
                     </p>
                 </div>
-                <div style={{display: "flex", justifyContent: "space-evenly"}}>
+                <div style={this.props.rowWrapperStyle}>
                     <SVGDisplay eachDisplayStyle={this.props.eachDisplayStyle}/>
                     <DragNDropDisplay eachDisplayStyle={this.props.eachDisplayStyle}/>
                     <FlexGridDisplay eachDisplayStyle={this.props.eachDisplayStyle}/>
                 </div>
-                <div style={{display: "flex", justifyContent: "space-evenly"}}>
+                <div style={this.props.rowWrapperStyle}>
                     {/*<div style={this.props.eachDisplayStyle}>Other display here</div>*/}
+                    <ReselectDisplay eachDisplayStyle={this.props.eachDisplayStyle}/>
+                    <div style={this.props.eachDisplayStyle}>Other display here</div>
+                    <div style={this.props.eachDisplayStyle}>Other display here</div>
                 </div>
         </div>
         );
