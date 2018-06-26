@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 /**
  * 对于font-awesome的不足的icon可以使用SVG 作为icon，
  * 从https://thenounproject.com/下载svg icons
