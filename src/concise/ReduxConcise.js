@@ -52,7 +52,8 @@ class Main extends Component {
     render() {
         return (
             <div className="App">
-                <AppHeader />
+                <AppHeader store={this.store}/> {/* <ReselectDisplay /> needs store in props when doing pure redux display
+                 without react-redux assistance, so needs pass down store layer by layer */}
                 <Counter value={this.store.getState().value} increase={this.increase} decrease={this.decrease}/>
             </div>
         );

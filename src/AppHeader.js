@@ -13,6 +13,8 @@ class AppHeader extends Component {
         this.state = {
 
         };
+        this.store = this.props.store;  /* <ReselectDisplay /> needs store in props when doing pure redux display
+         without react-redux assistance, so needs pass down store layer by layer */
     }
     static get defaultProps(){
         return {
@@ -81,7 +83,8 @@ class AppHeader extends Component {
                 </div>
                 <div style={this.props.rowWrapperStyle}>
                     {/*<div style={this.props.eachDisplayStyle}>Other display here</div>*/}
-                    <ReselectDisplay eachDisplayStyle={this.props.eachDisplayStyle}/>
+                    <ReselectDisplay store={this.store} eachDisplayStyle={this.props.eachDisplayStyle}/>
+                    {/* needs to pass down store explicitly layer by layer when doing pure redux display, because no Provider from react-redux now */}
                     <div style={this.props.eachDisplayStyle}>Other display here</div>
                     <div style={this.props.eachDisplayStyle}>Other display here</div>
                 </div>
