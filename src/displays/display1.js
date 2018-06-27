@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import {MySVGIcon} from "./../Icons";
+import $ from "jquery";
 export const SVGDisplay = (props) => {
     return (
         <div style={props.eachDisplayStyle}>
@@ -14,17 +15,41 @@ export const SVGDisplay = (props) => {
     );
 };
 export const DragNDropDisplay = (props) => {
+    $( function() {  // 使用jquery-ui的特性来拖拽调整顺序
+        $( "#sortable" ).sortable({
+            axis: "y",  /** 可以限制拖拽方向为x或y */
+            revert: true,
+            cancel: ".classname1", /** 当你点到某个类的元素时，不允许拖拽 */
+            //handle: ".classname2",  /** 只有拖拽某个类的元素时，拖拽动作才被允许执行 */
+            start: function(event, ui){
+
+            },
+            update: function(event, ui){
+
+            },
+            stop: function(event, ui){
+
+            }
+        });
+        $( "#draggable" ).draggable({
+            connectToSortable: "#sortable",
+            helper: "clone",
+            revert: "invalid",
+            axis: "y"
+        });
+    });
     return (
-        <div style={props.eachDisplayStyle}>
+        <div style={Object.assign({}, props.eachDisplayStyle)}>
             <p style={{textAlign: "center"}}><b><i>Drag and Drop Display</i></b></p>
-            <div id="draggable" className="ui-state-highlight">Drag me down</div>
-            <div id="sortable">
+            {/* 为了解决有滚动条时，拖拽会jump to bottom and then bounce back的问题, 需要#sortable有position relative */}
+            <div id="draggable" className="ui-state-highlight" style={{width: "150px"}}>Drag me down</div>
+            <div id="sortable" style={{position: "relative"}}>
                 {/*里面每一个拖拽项目必须是块级元素，外层包裹必须是#sortable才可以*/}
-                <div>hello</div>
-                <div>world</div>
-                <div>good</div>
-                <div>morning</div>
-                <div>great</div>
+                <div className="sortable-item">hello</div>
+                <div className="sortable-item">world</div>
+                <div className="sortable-item">good</div>
+                <div className="sortable-item">morning</div>
+                <div className="sortable-item">great</div>
             </div>
         </div>
     );

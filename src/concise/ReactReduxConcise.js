@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './../App.css';
 import { connect } from "react-redux";
 import AppHeader from "../AppHeader";
+import AppBody from "../AppBody";
 
 /**
  * Counter is a presentational component(pc)
@@ -82,6 +83,7 @@ const Main = () => {
         <div>
             <AppHeader />
             <CounterCC />
+            <AppBody />
         </div>
     );
 };

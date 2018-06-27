@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {createSelector} from  'reselect';
 import { connect } from "react-redux";
 
