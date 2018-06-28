@@ -1,5 +1,5 @@
 import React from 'react';
-import {SVGDisplay, DragNDropDisplay, FlexGridDisplay, FileDragNDropDisplay} from './displays/display1';
+import {SVGDisplay, DragNDropDisplay, FlexGridDisplay, FileDragNDropDisplay, SpinnerDisplay} from './displays/display1';
 import ReselectDisplay from './displays/ReselectDisplay';
 import utils from './utils';
 export default (props) => {
@@ -26,7 +26,7 @@ export default (props) => {
             <ReselectDisplay store={props.store} eachDisplayStyle={eachDisplayStyle}/>
             {/* needs to pass down store explicitly layer by layer when doing pure redux display, because no Provider from react-redux now */}
             <FileDragNDropDisplay eachDisplayStyle={eachDisplayStyle}/>
-            <div style={eachDisplayStyle}>Other display here</div>
+            <SpinnerDisplay eachDisplayStyle={eachDisplayStyle} />
         </div>
     </div>);
 };

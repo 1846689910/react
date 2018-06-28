@@ -131,3 +131,53 @@ export const FileDragNDropDisplay = (props) => {
         </div>
     </div>);
 };
+export const SpinnerDisplay = (props) => {
+    let timer;
+    let deg = 1;
+    let total = 5000;
+    let run = 0;
+    const start = () => {
+        const that = this;
+        if (timer === undefined)
+        timer = setInterval(() => {
+            deg = deg === 360 ? 1 : deg + 1;
+            that._spinner.style.transform = "rotate(" + deg + "deg)";
+        }, 5);
+    };
+    const stop = () => {
+        if (timer) {
+            clearInterval(timer);
+            timer = undefined;
+        }
+    };
+    const runFor5s = () => {
+        const that = this;
+        if (timer === undefined) {
+            deg = 1;
+            timer = setInterval(() => {
+                deg = deg === 360 ? 1 : deg + 1;
+                run += 5;
+                that._spinner.style.transform = "rotate(" + deg + "deg)";
+                that._run.innerText = run;
+                if (run >= total) {
+                    stop();
+                    run = 0;
+                }
+            }, 5);
+        }
+    };
+    return (
+        <div style={props.eachDisplayStyle}>
+            <p style={{textAlign: "center"}}><b><i>Spinner Display</i></b></p>
+            <div style={{textAlign: "center", fontSize: "30px"}}>
+                <i className="fa fa-spinner" aria-hidden="true" ref={(r) => this._spinner = r}/>
+                {/** 现在ref也可以在无状态组件中获取DOM元素了 */}
+            </div>
+            <div style={{display: "flex", justifyContent: "space-evenly", marginTop: "30px"}}>
+                <button className="btn btn-primary start-btn" style={{width: "20%"}} onClick={start}>start</button>
+                <button className="btn btn-primary run-for-btn" style={{width: "40%"}} onClick={runFor5s}>run for <span ref={(r) => this._run = r}>{run}</span></button>
+                <button className="btn btn-primary stop-btn" style={{width: "20%"}} onClick={stop}>stop</button>
+            </div>
+        </div>
+    );
+};
