@@ -41,7 +41,7 @@ export const DragNDropDisplay = (props) => {
     return (
         <div style={Object.assign({}, props.eachDisplayStyle)}>
             <p style={{textAlign: "center"}}><b><i>Drag and Drop Display</i></b></p>
-            {/* 为了解决有滚动条时，拖拽会jump to bottom and then bounce back的问题, 需要#sortable有position relative */}
+            {/** 为了解决有滚动条时，拖拽会jump to bottom and then bounce back的问题, 需要#sortable有position relative */}
             <div id="draggable" className="ui-state-highlight" style={{width: "150px"}}>Drag me down</div>
             <div id="sortable" style={{position: "relative"}}>
                 {/*里面每一个拖拽项目必须是块级元素，外层包裹必须是#sortable才可以*/}
@@ -74,4 +74,60 @@ export const FlexGridDisplay = (props) => {
             </div>
         </div>
     );
+};
+export const FileDragNDropDisplay = (props) => {
+    const dropZoneStyle = {
+        width: "70%",
+        height: "100px",
+        background: "gray",
+        border: "2px dashed black"
+    };
+    const dragOverHandler = (e) => {
+        e.preventDefault();
+        console.log("drag over drop zone");
+    };
+
+    const readFile = (file) => {
+        console.log(file);
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const content = e.target.result;
+            console.log(content);
+        };
+        reader.readAsText(file);
+    };
+    const removeDragData = (e) => {
+        if (e.dataTransfer.items) {
+            // Use DataTransferItemList interface to remove the drag data
+            e.dataTransfer.items.clear();
+        } else {
+            // Use DataTransfer interface to remove the drag data
+            e.dataTransfer.clearData();
+        }
+    };
+    const dropHandler = (e) => {
+        e.preventDefault();
+        if (e.dataTransfer === undefined && e.originalEvent && e.originalEvent.dataTransfer) e.dataTransfer = e.originalEvent.dataTransfer;
+        if (e.dataTransfer.items) {
+            for (let i = 0; i < e.dataTransfer.items.length; i ++) {
+                // If dropped items aren't files, reject them
+                if (e.dataTransfer.items[i].kind === 'file') {
+                    const file = e.dataTransfer.items[i].getAsFile();
+                    readFile(file);  // bind this to readerOnLoadFn, for the use of this inside function of readerOnLoadFn
+                }
+            }
+        } else {
+            for (let i = 0; i < e.dataTransfer.files.length; i++) {
+                const file = e.dataTransfer.files[i];
+                readFile(file);
+            }
+        }
+        removeDragData(e);
+    };
+    return (<div style={props.eachDisplayStyle}>
+        <p style={{textAlign: "center"}}><b><i>File Drag And Drop Display</i></b></p>
+        <div style={{display: "flex", justifyContent: "center"}}>
+            <div style={dropZoneStyle} onDragOver={dragOverHandler} onDrop={dropHandler}>Please drop here</div>
+        </div>
+    </div>);
 };
