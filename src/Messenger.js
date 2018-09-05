@@ -18,6 +18,9 @@ const Messenger = () => {
         }
     };
 };
+/**
+ * 或者使用 class Messenger{}来定义，因为该组件我们只是使用它的静态变量
+ * */
 Messenger.msg = {
     arr1: [],
     obj1: {},

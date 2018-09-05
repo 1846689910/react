@@ -88,7 +88,7 @@ const fn = () => {
 };
 
 export default {
-    LRUCache: LRUCache,
-    getTime: getTime,
-    fn: fn
+    LRUCache,
+    getTime,
+    fn
 };

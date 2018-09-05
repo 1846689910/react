@@ -36,9 +36,17 @@ class Template1 extends React.Component {
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.handleChange1 = this.handleChange1.bind(this);
+        this.handleChange1 = this.handleChange1.bind(this);  /**需要绑定的原因:
+         通过function fn(){}或者fn(){}定义的方法内部是有自己的this关键字的，如果我们创建了Template1的实例let a = new Template1()
+         然后使用const fn1 = a.fn, 然后在全局使用fn1().这样其内部的this会指向全局，会导致this指向混乱,所以我们在这里绑定this
+         */
+        /** 绑定this的解决方法2:
+         * 除了绑定我们可以在组件内用arrow function来定义方法，就不会出现this混乱问题。因为()=>{}箭头函数没有自己的this，他的this要向
+         * 自身定义域来继承或父域来继承this，所以无需绑定.
+         * 注意:箭头函数自身没有this, 在他里面用的this就是组件的this
+         * */
     }
-    static get defaultProps(){  // set default props
+    static get defaultProps(){  /**set default props, 静态变量，可以由Template1.myStaticValue直接调用,可调用也可修改*/
         return {
             name: "Eric"
         };
@@ -88,6 +96,9 @@ class Template1 extends React.Component {
         /** setState方法一：重置键值对 */
         this.setState({
             myState: event.target.value
+        }, () => {  /** setState还可以接受一个回调函数，将在state设置完毕之后触发，可以在这里调用到最新的state */
+            console.log(`now, myState = ${this.state.myState}`);
+
         });
     }
     handleChange1(event){
@@ -96,8 +107,13 @@ class Template1 extends React.Component {
             console.log(state);  /** 当前的state */
             console.log(props);  /** 当前的props */
             return {
-                myState: state.myState + event.target.value,  /** 根据当前的state来构造新的state */
+                myState: state.myState + event.target.value  /** 根据当前的state来构造新的state */
             }
+        });
+    }
+    handleChange2 = (e) => {  /**无需绑定this，原因见上文*/
+        this.setState({
+            myState: e.target.value
         });
     }
     copy(obj, isDeepCopy) {
@@ -126,6 +142,7 @@ class Template1 extends React.Component {
         );
     }
 }
+Template1.myStaticValue = 123;  /**静态变量，可以由Template1.myStaticValue直接调用,可调用也可修改*/
 Template1.propTypes = {
     age: PropTypes.number,  /** React15.5及之后的版本都这么写 */
 };
